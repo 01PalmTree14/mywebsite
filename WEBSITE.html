@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niel's Course Website</title>
+    <style> 
+        /* Global Styles */
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f8f5;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation Bar */
+        .topnav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #2c3e50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            z-index: 1000;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .topnav .name {
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            font-size: 28px;
+            color: #f39c12;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .topnav .name:hover {
+            transform: scale(1.1);
+            color: #fff;
+            text-shadow: 0px 0px 10px rgba(255, 152, 0, 0.9);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 12px 20px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2c3e50;
+            background-color: #f39c12;
+        }
+
+        /* Home Section */
+        .container {
+            padding: 80px 30px;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .picture {
+            width: 400px; /* Updated size */
+            height: 400px; /* Updated size */
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .title {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .contact {
+            margin-top: 20px;
+        }
+
+        /* About Section */
+        .about-container {
+            padding: 80px 30px;
+            text-align: center;
+        }
+
+        .about-container .title {
+            font-size: 35px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .about-grid {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #f0f5f9;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 80px;
+            max-width: 100px;
+            margin: 15px 0;
+        }
+
+        .skill-icons img.logo {
+            width: 50px;
+            margin: 10px;
+        }
+
+        /* Assignments Section */
+        #assignments {
+            padding: 80px 30px;
+            text-align: center;
+            background: #ecf0f1;
+        }
+
+        #assignments .title {
+            font-size: 35px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 50px;
+        }
+
+        .assignments-grid {
+            display: flex;
+            justify-content: center;
+            gap: 70px;
+            flex-wrap: wrap;
+        }
+
+        .project-card {
+            background: #fff;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 12px;
+            width: 350px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card h2 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        /* Projects Section */
+        .projects-container {
+            padding: 80px 30px;
+            text-align: center;
+            background: #ecf0f1;
+        }
+
+        .projects-container .title {
+            font-size: 35px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 50px;
+        }
+
+        .projects-grid {
+            display: flex;
+            justify-content: center;
+            gap: 70px;
+            flex-wrap: wrap;
+        }
+
+        .project-card {
+            background: #fff;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 12px;
+            width: 350px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card img {
+            width: 100%;
+            max-width: 320px;
+            margin-top: 15px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer Section */
+        .footer-container {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer-container a {
+            color: #f39c12;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-container a:hover {
+            color: #ecf0f1;
+        }
+
+        .footer .social-icons {
+            margin-top: 20px;
+        }
+
+        .footer .social-icons a {
+            color: #fff;
+            margin: 0 15px;
+            font-size: 1.8em;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            color: #f39c12;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="topnav">
+        <div class="nav-links">
+            <a class="link" href="#home">Home</a>
+            <a class="link" href="#about">About</a>
+            <a class="link" href="#assignments">Assignments</a>
+            <a class="link" href="#projects">Projects</a>
+            <a class="link" href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div id="home" class="container">
+        <div class="header">
+            <div class="picture">
+                <img src="pfp2.jpg" alt="Niel Palma">
+            </div>
+            <h2 class="title">Niel Palma</h2>
+            <h4 class="subtitle">Computer Science Student</h4>
+            <p class="description">I am a passionate Computer Science student, driven by a curiosity for technology and its transformative power. My goal is to harness my technical skills to solve real-world problems and make a meaningful impact. With a strong foundation in software development and problem-solving, I thrive in collaborative environments and continuously seek to improve my skills. I embrace challenges and constantly push myself to learn and grow in the ever-evolving field of technology.</p>
+        </div>
+    </div>
+
+    <section id="about" class="about-container">
+        <h2 class="title">About Me</h2>
+        <div class="about-grid">
+            <div class="card">
+                <h2>Education</h2>
+                <div class="schoo-icon">
+                    <img class="logo" src="olfuLogo.png" alt="OLFU">
+                    <img class="cslogo" src="ccsLogo.png" alt="OLFU">
+                    <p>Currently in my third year of studying Computer Science at Our Lady of Fatima University, Laguna Campus, where I am gaining hands-on experience and building a solid foundation in technology.</p>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Skills</h2>
+                <div class="skill-icons">
+                    <img class="logo" src="Clogo.png" alt="C">
+                    <img class="logo" src="JavaLogo.png" alt="Java">
+                    <img class="logo" src="pyLogo.png" alt="Python">
+                    <img class="logo" src="mysql.png" alt="mysql">
+                </div>
+                <p>Proficient in a variety of programming languages and development frameworks, with hands-on experience in building applications and solving technical challenges.</p>
+            </div>
+            <div class="card">
+                <h2>Certifications</h2>
+                <img class="logo" src="work-in-progress.png" alt="Cert">
+                <p>Holds certifications in key programming languages and software development courses, demonstrating a commitment to continuous learning and growth in the field.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="assignments" class="container section">
+        <h2 class="title">Assignments</h2>
+        <div class="assignments-grid">
+            <div class="project-card">
+                <h2>Assignment 1</h2>
+                
+            </div>
+            <div class="project-card">
+                <h2>Assignment 2</h2>
+                
+            </div>
+            <div class="project-card">
+                <h2>Assignment 3</h2>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-container">
+        <h2 class="title">Project Ideas</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h2>Interactive Infographic</h2>
+                <p>A webpage that educates users through interactive visuals. This project aims to create an engaging and informative experience by using interactive elements such as charts, graphs, and animations to present data and information in a visually appealing way.</p>
+            </div>
+            <div class="project-card">
+                <h2>Drag & Drop UI</h2>
+                <p>A user interface allowing intuitive drag-and-drop interactions. This project focuses on creating a seamless and user-friendly interface where users can easily drag and drop elements to customize their experience, such as organizing tasks, creating layouts, or managing files.</p>
+            </div>
+            <div class="project-card">
+                <h2>Card Sorting Game</h2>
+                <p>A web-based game where users categorize information interactively. This project aims to develop an educational game that helps users learn and retain information by sorting cards into different categories based on their knowledge and understanding.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer-container">
+        <div class="contact-info">
+            <h3>Contact Me</h3>
+            <p>Email: <a href="mailto:your-email@example.com" style="color: #f39c12;">nbpalma3241lag@student.fatima.edu.ph</a></p>
+            <p>Phone: +63 991 436 8092</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/your-profile" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
